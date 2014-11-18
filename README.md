@@ -1,8 +1,6 @@
 PDF2ImageForEP
 ==============
 
-Overview
-
 #Description
 PlugIn APP for PDF rendering by using the PDF2Image.
 
