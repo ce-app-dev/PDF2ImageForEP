@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="jp.undo.android.pdf2image"
+      android:versionCode="1"
+      android:versionName="1.01">
+    <supports-screens android:smallScreens="true"
+                      android:normalScreens="true"
+                      android:largeScreens="true"
+                      android:anyDensity="true" />
+    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="11"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <application android:label="@string/app_name"
+                 android:icon="@drawable/pdf2img_icon"
+                 android:largeHeap="true"
+                 android:hardwareAccelerated="true">
+        <activity
+            android:name=".PDF2ImageActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.RUN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="android.app.ActivityGroup" />
+        </activity>
+
+        <activity android:name="com.artifex.mupdf.ChoosePDFActivity"
+                  android:label="@string/picker_title">
+        </activity>
+		<activity android:name="com.artifex.mupdf.MuPDFActivity"
+	    	android:label="@string/app_name"
+	    	android:exported="true"
+	    	android:theme="@android:style/Theme.NoTitleBar">
+	            <intent-filter>
+	                <action android:name="android.intent.action.VIEW"/>
+	                <category android:name="android.intent.category.DEFAULT"/>
+	                <data android:mimeType="application/vnd.ms-xpsdocument"/>
+	            </intent-filter>
+	            <intent-filter>
+	                <action android:name="android.intent.action.VIEW"/>
+	                <category android:name="android.intent.category.DEFAULT"/>
+	                <data android:mimeType="application/x-cbz"/>
+	            </intent-filter>
+	            <intent-filter>
+	                <action android:name="android.intent.action.VIEW"/>
+	                <category android:name="android.intent.category.DEFAULT"/>
+	                <category android:name="android.intent.category.BROWSABLE"/>
+	                <data android:scheme="file"/>
+	                <data android:mimeType="*/*"/>
+	                <data android:pathPattern=".*\\.xps"/>
+	                <data android:host="*"/>
+	            </intent-filter>
+	            <intent-filter>
+	                <action android:name="android.intent.action.VIEW"/>
+	                <category android:name="android.intent.category.DEFAULT"/>
+	                <category android:name="android.intent.category.BROWSABLE"/>
+	                <data android:scheme="file"/>
+	                <data android:mimeType="*/*"/>
+	                <data android:pathPattern=".*\\.cbz"/>
+	                <data android:host="*"/>
+	            </intent-filter>
+	        </activity>
+	        <activity android:name="com.artifex.mupdf.OutlineActivity"
+	                  android:label="@string/outline_title">
+		</activity>
+        <activity android:name="FilerActivity"></activity>
+        <service android:name="jp.undo.android.pdf2image.PDF2ImageService"
+            android:exported="true" android:permission="android.permission.WRITE_EXTERNAL_STORAGE">
+			<intent-filter>
+				<!-- バインドの対象となるサービスで提供するインターフェース -->
+				<action android:name="jp.undo.android.pdf2image.PDF2ImageInterface" />
+				<!-- 特定のクラスを指定せずにサービスを指定するアクションコード -->
+				<action android:name="jp.undo.android.pdf2image.REMOTE_SERVICE" />
+			</intent-filter>
+        </service>
+        
+    </application>
+</manifest> 

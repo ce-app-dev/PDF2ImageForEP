@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="updir">上へ</string>
+    <string name="change_path">変更</string>
+    <string name="choose_title">選択して下さい</string>
+    <string name="choose_msg">このファイルを変換対象に指定するか、直接閲覧するかを選択して下さい</string>
+    <string name="choose_specification">変換</string>
+    <string name="choose_view">閲覧</string>
+    <string name="src_file">変換対象ファイル</string>
+    <string name="dst_dir">出力先フォルダ</string>
+    <string name="explanatory_note">「変換対象ファイル」の各ページを画像ファイルとして「出力先フォルダ」に書き出します</string>
+    <string name="notes">※出力先に同名のファイルがある場合は上書きされます</string>
+    <string name="info_src_file_path">変換対象ファイルを選択して下さい</string>
+    <string name="next_button">次へ（出力設定）</string>
+    <string name="cancel_button">キャンセル</string><string name="execution_button">変換処理実行</string>
+    <string name="dst_dir_set_button">このフォルダに書き出す</string>
+    <string name="output_setting_title">出力設定</string>
+    <string name="output_setting_page_title">出力ページ</string>
+    <string name="output_setting_page_info">全　%1$d　ページ</string>
+    <string name="output_setting_page_delimiter">〜</string>
+    <string name="output_setting_size_title">出力画像サイズ</string>
+    <string name="output_setting_size_radio_origin">PDFの設定に従う</string>
+    <string name="output_setting_size_radio_custom">指定</string>
+	<string name="output_setting_size_width">幅</string>
+	<string name="output_setting_size_x">×</string>
+    <string name="output_setting_size_height">高さ</string>
+    <string name="output_setting_size_info">※使用可能なメモリが不足する場合はリサンプリングされる場合があります</string>
+    <string name="output_setting_format_title">出力フォーマット</string>
+    <string-array name="output_setting_format_type">
+        <item>JPEG</item>
+        <item>PNG</item>
+    </string-array>
+    <string name="output_setting_quality_title">画質</string>
+    <string name="output_setting_quality_info">(0:低画質・小容量　〜　100:高画質・大容量)</string>
+    <string name="output_setting_quality_default">100</string>
+    <string name="warning_dialog_title_src">ファイルが指定されていません</string>
+    <string name="warning_dialog_message_src">変換対象ファイルに処理可能なPDFファイルが指定されていません\n処理を行いたいPDFファイルを選択して下さい</string>
+    <string name="warning_dialog_title_dst">書き込めません</string>
+    <string name="warning_dialog_message_dst">出力先フォルダに書き込み権限がありません</string>
+    <string name="check_dialog_title">変換処理を実行します</string>
+    <string name="check_dialog_message">%1$s\n（全%2$dページ）\nを画像ファイルとして\n%3$s\nに書き出します</string>
+    <string name="check_dialog_positive_button">実行する</string>
+    <string name="check_dialog_negative_button">キャンセル</string>
+    <string name="progress_dialog_title">変換処理中</string>
+    <string name="description_filelist_image">アイコン</string>
+    <string name="fileractivity_warning_text1">フォルダを開く事ができませんでした</string>
+    <string name="fileractivity_warning_text2">指定フォルダに移動できないため、\n%1$s\nに変更しました</string>
+    <string name="input_password">パスワードを入力して下さい</string>
+    <string name="input_password_retry">やりなおす</string>
+    <string name="password_error_title">パスワードが違います</string>
+    <string name="password_error_msg">パスワードが間違っています\n\nファイルを開くには操作をやり直して下さい</string>
+</resources>
