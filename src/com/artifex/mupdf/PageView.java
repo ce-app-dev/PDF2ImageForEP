@@ -1,6 +1,6 @@
 package com.artifex.mupdf;
 
-import jp.undo.android.pdf2image.R;
+import jp.co.muratec.pdf2image.R;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;

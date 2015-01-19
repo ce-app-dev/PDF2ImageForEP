@@ -7,7 +7,7 @@
  * 
  */
 
-package jp.undo.android.pdf2image;
+package jp.co.muratec.pdf2image;
 
 
 import android.content.Context;

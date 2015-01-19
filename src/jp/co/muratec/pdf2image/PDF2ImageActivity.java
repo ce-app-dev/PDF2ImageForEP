@@ -6,7 +6,7 @@
  * 従って、本アプリケーションのライセンスもGPLv3となります
  */
 
-package jp.undo.android.pdf2image;
+package jp.co.muratec.pdf2image;
 
 
 import java.io.File;
@@ -116,7 +116,7 @@ public class PDF2ImageActivity extends Activity {
 		// 他アプリからClassLoader経由で呼ばれる場合に備え、ライブラリ読み込みクラスを使うように変更したため、自アプリで使う時は事前準備が必要
 		LoadLibrary instance = LoadLibrary.getInstance();
 		try {
-			instance.setAppPath(getPackageManager().getApplicationInfo("jp.undo.android.pdf2image", 0).sourceDir , getFilesDir().getAbsolutePath());
+			instance.setAppPath(getPackageManager().getApplicationInfo("jp.co.muratec.pdf2image", 0).sourceDir , getFilesDir().getAbsolutePath());
 			instance.init();
 		} catch (NameNotFoundException e) {
 			// TODO 自動生成された catch ブロック
@@ -239,7 +239,7 @@ public class PDF2ImageActivity extends Activity {
 	        dstDirPath = Environment.getExternalStorageDirectory().getAbsolutePath();
 	        dstDirView.setText(dstDirPath);
 	        
-	        filerIntent = new Intent(this, jp.undo.android.pdf2image.FilerActivity.class);	// ファイル選択用Intentを準備
+	        filerIntent = new Intent(this, jp.co.muratec.pdf2image.FilerActivity.class);	// ファイル選択用Intentを準備
 		}
 	}
 	@Override

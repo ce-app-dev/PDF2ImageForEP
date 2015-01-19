@@ -5,7 +5,7 @@ import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.List;
 
-import jp.undo.android.pdf2image.R;
+import jp.co.muratec.pdf2image.R;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;

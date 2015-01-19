@@ -5,7 +5,7 @@
  * 		アプリ間でファイルの共有を行うため、この方式を使うためには、Manifestにandroid:sharedUserIdを指定し、共通の署名を使用する必要がある
  */
 
-package jp.undo.android.pdf2image;
+package jp.co.muratec.pdf2image;
 
 import java.io.File;
 import java.io.FileOutputStream;

@@ -1,5 +1,5 @@
 package com.artifex.mupdf;
-import jp.undo.android.pdf2image.LoadLibrary;
+import jp.co.muratec.pdf2image.LoadLibrary;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.PointF;
@@ -8,7 +8,7 @@ import android.graphics.RectF;
 public class MuPDFCore
 {
 	/* load our native library */
-//	‘¼ƒAƒvƒŠ‚©‚çClassLoaderŒo—R‚ÅŒÄ‚Î‚ê‚é–‚ª‚ ‚é‚½‚ßA‚±‚Ì•û®‚Å‚Í“Ç‚İ‚ß‚È‚¢
+//	ä»–ã‚¢ãƒ—ãƒªã‹ã‚‰ClassLoaderçµŒç”±ã§å‘¼ã°ã‚Œã‚‹äº‹ãŒã‚ã‚‹ãŸã‚ã€ã“ã®æ–¹å¼ã§ã¯èª­ã¿è¾¼ã‚ãªã„
 //	static {
 //		System.loadLibrary("mupdf");
 //	}
@@ -41,7 +41,7 @@ public class MuPDFCore
 
 	public MuPDFCore(String filename) throws Exception
 	{
-		// ‘¼ƒAƒvƒŠ‚©‚çClassLoaderŒo—R‚ÅŒÄ‚Î‚ê‚éê‡‚É”õ‚¦Aƒ‰ƒCƒuƒ‰ƒŠ“Ç‚İ‚İƒNƒ‰ƒX‚ğg‚¤
+		// ä»–ã‚¢ãƒ—ãƒªã‹ã‚‰ClassLoaderçµŒç”±ã§å‘¼ã°ã‚Œã‚‹å ´åˆã«å‚™ãˆã€ãƒ©ã‚¤ãƒ–ãƒ©ãƒªèª­ã¿è¾¼ã¿ã‚¯ãƒ©ã‚¹ã‚’ä½¿ã†
 		LoadLibrary instance = LoadLibrary.getInstance();
 		instance.init();
 		

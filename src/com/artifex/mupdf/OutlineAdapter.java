@@ -1,6 +1,6 @@
 package com.artifex.mupdf;
 
-import jp.undo.android.pdf2image.R;
+import jp.co.muratec.pdf2image.R;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

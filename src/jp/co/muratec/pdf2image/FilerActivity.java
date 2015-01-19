@@ -1,4 +1,4 @@
-package jp.undo.android.pdf2image;
+package jp.co.muratec.pdf2image;
 
 import java.io.File;
 import java.text.SimpleDateFormat;

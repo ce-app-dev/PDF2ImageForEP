@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<!--　・各言語で同じプリファレンス名を必ず定義すること！
+		　　例）<string name="preference">FaxReplyPreference</string>
+    	　　
+    	　　※言語によりプリファレンス名が異なっているとそれぞれの設定値を覚えることになり、言語切り替えで不都合が発生する
+		　　※アプリでのプリファレンス名の定義を忘れるとライブラリで定義したプリファレンス名が使われる
+    -->
+    <!--　注）このアプリでは設定値を使っていないのでプリファレンス名を定義しなくて良い -->
     <string name="app_name">PDF2Image Plugin</string>
     <string name="no_media_warning">Storage Media not present</string>
     <string name="no_media_hint">Sharing the storage media with a PC can make it inaccessible</string>

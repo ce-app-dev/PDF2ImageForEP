@@ -1,0 +1,95 @@
+/* 繝阪う繝�ぅ繝悶Λ繧､繝悶Λ繝ｪ繧貞他縺ｳ蜃ｺ縺� * 騾壼ｸｸ縺ｯ縲《tatic { System.loadLibrary("繝ｩ繧､繝悶Λ繝ｪ蜷�); }縺ｧ濶ｯ縺�ｼ�om.artifex.mupdf.MuPDFCore.java蜀帝�縺ｮ繧ｳ繝｡繝ｳ繝磯Κ蛻�ｼ� * 縺薙�繧｢繝励Μ縺ｧ縺ｯ縲∝挨繧｢繝励Μ縺九ｉ繝励Λ繧ｰ繧､繝ｳ蠖｢蠑上→縺励※ClassLoader邨檎罰縺ｧ蜻ｼ縺ｳ蜃ｺ縺輔ｌ繧倶ｺ九ｒ諠ｳ螳壹＠縺溘◆繧√�繝ｩ繧､繝悶Λ繝ｪ縺ｮ蜻ｼ縺ｳ蜃ｺ縺玲婿豕輔ｒ螟画峩縺励◆
+ * 		ClassLoader邨檎罰縺ｧ蜻ｼ縺ｳ蜃ｺ縺吝�蜷医�蜻ｼ縺ｳ蜃ｺ縺怜�縺ｮ謖�ｮ壹ヱ繧ｹ縺ｫ繝ｩ繧､繝悶Λ繝ｪ繝輔ぃ繧､繝ｫ繧偵さ繝斐�縺励※縲√さ繝斐�縺励◆繝輔ぃ繧､繝ｫ繧定ｪｭ繧� * 		繧｢繝励Μ髢薙〒繝輔ぃ繧､繝ｫ縺ｮ蜈ｱ譛峨ｒ陦後≧縺溘ａ縲√％縺ｮ譁ｹ蠑上ｒ菴ｿ縺�◆繧√↓縺ｯ縲｀anifest縺ｫandroid:sharedUserId繧呈欠螳壹＠縲∝�騾壹�鄂ｲ蜷阪ｒ菴ｿ逕ｨ縺吶ｋ蠢�ｦ√′縺ゅｋ
+ */
+
+package jp.co.muratec.pdf2image;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Calendar;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
+
+import android.os.Build;
+
+public class LoadLibrary {
+	// 繧ｷ繝ｳ繧ｰ繝ｫ繝医Φ繝代ち繝ｼ繝ｳ
+	private static LoadLibrary instance = new LoadLibrary();
+	private LoadLibrary() {}
+	
+	// 繧､繝ｳ繧ｹ繧ｿ繝ｳ繧ｹ蜿門ｾ励Γ繧ｽ繝�ラ
+	public static LoadLibrary getInstance() {
+		return instance;
+	}
+	
+	
+	/*
+	 * 莉･荳九�繧ｯ繝ｩ繧ｹ縺ｮ蜃ｦ逅�Κ
+	 */
+	private boolean initFlag = false;
+	private String sourceDir = null;
+	private String outDir    = null;
+	
+	// 蛻晄悄蛹厄ｼ郁�繧｢繝励Μ縺九ｉ蜻ｼ縺ｳ蜃ｺ縺咏沿��	
+	public void setAppPath(String _sourceDir,String _outDir) {
+		sourceDir = _sourceDir;
+		outDir    = _outDir;
+	}
+	public void init(){
+		init(sourceDir,outDir);
+	}
+	/**
+	 * 蛻晄悄蛹厄ｼ井ｻ悶い繝励Μ縺九ｉClassLoader邨檎罰縺ｧ蜻ｼ縺ｰ繧後◆蝣ｴ蜷茨ｼ�	 * @param appPath	<br>縲�悽繧｢繝励Μ縺ｮ.apk縺ｮ繝代せ<br>縲�ontext.getPackageManager().getApplicationInfo("譛ｬ繧｢繝励Μ縺ｮ繝代ャ繧ｱ繝ｼ繧ｸ蜷�, 0).sourceDir<br>縲�〒縲∝叙蠕励＠縺ｦ荳九＆縺�	 * @param outPath	<br>縲�so繝輔ぃ繧､繝ｫ縺ｮ繧ｳ繝斐�蜈�br>縲�他縺ｳ蜃ｺ縺怜�縺ｨ蜈ｱ譛峨〒縺阪ｋ繝代せ縺ｧ縺ゅｋ莠九�繝輔ぃ繧､繝ｫ蜷阪∪縺ｧ蜷ｫ繧�ヵ繝ｫ繝代せ縺ｧ謖�ｮ�	 */
+	public void init(String appPath,String outPath){
+		if(initFlag == false){
+			// 隱ｭ縺ｿ霎ｼ縺ｿ縺ｯ�大屓縺ｮ縺ｿ縺ｨ縺ｪ繧九ｈ縺�↓豕ｨ諢擾ｼ�			String soName = "libmupdf.so";
+			if(Build.CPU_ABI.equals("armeabi-v7a")){
+				soName = "libmupdf_neon.so";
+			}
+			Calendar calendar = Calendar.getInstance();
+			int now   = calendar.get(Calendar.MILLISECOND);		// 蜷後§繝輔ぃ繧､繝ｫ蜷阪□縺ｨSystem.load縺励◆譎ゅ↓already loaded縺檎匱逕溘☆繧九�縺ｧ縲��縺ｫ譎る俣繧偵▽縺代※繧｢繧ｯ繧ｻ繧ｹ豈弱↓蛻･繝輔ぃ繧､繝ｫ縺ｫ
+			File outDir = new File(outPath);
+			File[] list = outDir.listFiles();
+			for(File file : list){
+				if(file.getName().endsWith(soName)){
+					// 譌｢縺ｫso繝輔ぃ繧､繝ｫ縺悟ｱ暮幕貂医∩縺ｪ繧�					file.renameTo(new File(outPath,Integer.toString(now)+soName));
+					System.load(outPath+"/"+Integer.toString(now)+soName);
+					initFlag = true;
+					return;
+				}
+			}
+			// 譛ｬ繧｢繝励Μ蜀��so繝輔ぃ繧､繝ｫ繧偵さ繝斐�縺励※菴ｿ縺�			String copyFile = outPath+"/"+Integer.toString(now)+soName;
+			ZipExtractFile(appPath,"assets/"+soName,copyFile);		// appPath縺ｫ縺ゅｋ.so繝輔ぃ繧､繝ｫ繧偵�outPath縺ｫ繧ｳ繝斐�
+			System.load(copyFile);									// 繧ｳ繝斐�縺励◆繝ｩ繧､繝悶Λ繝ｪ繧定ｪｭ縺ｿ霎ｼ繧�			initFlag = true;
+		}
+	}
+	  
+	  //extract file from apk file
+	  public static boolean ZipExtractFile(String ZipFile,String SrcFile,String DstFile) 
+	  {
+		  ZipFile zip;
+		  try {
+			  File DstFileObj=new File(DstFile);
+			  zip = new ZipFile(ZipFile);
+			  ZipEntry zipen = zip.getEntry(SrcFile);
+			  if ((!DstFileObj.exists()) || (zipen.getSize()!=DstFileObj.length())) {
+				  InputStream is = zip.getInputStream(zipen);
+				  OutputStream os = new FileOutputStream(DstFile);
+				  byte[] buf = new byte[8092];
+				  int n;
+				  while ((n = is.read(buf)) > 0) {
+					  os.write(buf, 0, n);
+				  }
+				  os.close();
+				  is.close();
+			  }
+		  } catch (IOException e) {
+			  e.printStackTrace();
+			  return false;
+		  }
+		  return true;
+	  }
+}

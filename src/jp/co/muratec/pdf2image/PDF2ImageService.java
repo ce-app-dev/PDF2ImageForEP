@@ -9,7 +9,7 @@
  * 従って、本アプリケーションのライセンスもGPLv3となります
  */
 
-package jp.undo.android.pdf2image;
+package jp.co.muratec.pdf2image;
 
 import java.io.File;
 import com.artifex.mupdf.MuPDFCore;

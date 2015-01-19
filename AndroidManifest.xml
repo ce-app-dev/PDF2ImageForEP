@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="jp.undo.android.pdf2image"
-      android:versionCode="1"
-      android:versionName="1.01">
+      package="jp.co.muratec.pdf2image"
+      android:versionCode="3"
+      android:versionName="1.02">
     <supports-screens android:smallScreens="true"
                       android:normalScreens="true"
                       android:largeScreens="true"
@@ -67,13 +67,13 @@
 	                  android:label="@string/outline_title">
 		</activity>
         <activity android:name="FilerActivity"></activity>
-        <service android:name="jp.undo.android.pdf2image.PDF2ImageService"
+        <service android:name="jp.co.muratec.pdf2image.PDF2ImageService"
             android:exported="true" android:permission="android.permission.WRITE_EXTERNAL_STORAGE">
 			<intent-filter>
 				<!-- バインドの対象となるサービスで提供するインターフェース -->
-				<action android:name="jp.undo.android.pdf2image.PDF2ImageInterface" />
+				<action android:name="jp.co.muratec.pdf2image.PDF2ImageInterface" />
 				<!-- 特定のクラスを指定せずにサービスを指定するアクションコード -->
-				<action android:name="jp.undo.android.pdf2image.REMOTE_SERVICE" />
+				<action android:name="jp.co.muratec.pdf2image.REMOTE_SERVICE" />
 			</intent-filter>
         </service>
         

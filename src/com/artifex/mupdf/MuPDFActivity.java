@@ -2,9 +2,9 @@ package com.artifex.mupdf;
 
 import java.io.UnsupportedEncodingException;
 
-import jp.undo.android.pdf2image.LoadLibrary;
-import jp.undo.android.pdf2image.PDF2ImageActivity;
-import jp.undo.android.pdf2image.R;
+import jp.co.muratec.pdf2image.LoadLibrary;
+import jp.co.muratec.pdf2image.PDF2ImageActivity;
+import jp.co.muratec.pdf2image.R;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -138,7 +138,7 @@ public class MuPDFActivity extends Activity
 		// 他アプリからClassLoader経由で呼ばれる場合に備え、ライブラリ読み込みクラスを使うように変更したため、自アプリで使う時は事前準備が必要
 		LoadLibrary instance = LoadLibrary.getInstance();
 		try {
-			instance.setAppPath(getPackageManager().getApplicationInfo("jp.undo.android.pdf2image", 0).sourceDir , getFilesDir().getAbsolutePath());
+			instance.setAppPath(getPackageManager().getApplicationInfo("jp.co.muratec.pdf2image", 0).sourceDir , getFilesDir().getAbsolutePath());
 		} catch (NameNotFoundException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
