@@ -434,7 +434,8 @@ public class ReaderView extends AdapterView<Adapter>
 
 	@Override
 	public View getSelectedView() {
-		throw new UnsupportedOperationException("Not supported");
+//		throw new UnsupportedOperationException("Not supported");
+		return null;
 	}
 
 	@Override
@@ -447,7 +448,7 @@ public class ReaderView extends AdapterView<Adapter>
 
 	@Override
 	public void setSelection(int arg0) {
-		throw new UnsupportedOperationException("Not supported");
+//		throw new UnsupportedOperationException("Not supported");
 	}
 
 	private View getCached() {
