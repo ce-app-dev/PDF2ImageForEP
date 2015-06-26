@@ -12,7 +12,8 @@
     <string name="notes">※出力先に同名のファイルがある場合は上書きされます</string>
     <string name="info_src_file_path">変換対象ファイルを選択して下さい</string>
     <string name="next_button">次へ（出力設定）</string>
-    <string name="cancel_button">キャンセル</string><string name="execution_button">変換処理実行</string>
+    <string name="cancel_button">キャンセル</string>
+    <string name="execution_button">変換処理実行</string>
     <string name="dst_dir_set_button">このフォルダに書き出す</string>
     <string name="output_setting_title">出力設定</string>
     <string name="output_setting_page_title">出力ページ</string>

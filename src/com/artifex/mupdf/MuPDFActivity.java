@@ -197,11 +197,11 @@ public class MuPDFActivity extends Activity
 				return;
 			}
 		}
-		if (core == null)
-		{
+		if (core == null) {
 			AlertDialog alert = mAlertBuilder.create();
+			alert.setCancelable(false);
 			alert.setTitle(R.string.open_failed);
-			alert.setButton(AlertDialog.BUTTON_POSITIVE, "Dismiss",
+			alert.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.close),
 					new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int which) {
 							finish();
@@ -220,9 +220,10 @@ public class MuPDFActivity extends Activity
 		mPasswordView.setTransformationMethod(new PasswordTransformationMethod());
 
 		AlertDialog alert = mAlertBuilder.create();
+		alert.setCancelable(false);
 		alert.setTitle(R.string.enter_password);
 		alert.setView(mPasswordView);
-		alert.setButton(AlertDialog.BUTTON_POSITIVE, "Ok",
+		alert.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.ok),
 				new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
 				if (core.authenticatePassword(mPasswordView.getText().toString())) {
@@ -232,7 +233,7 @@ public class MuPDFActivity extends Activity
 				}
 			}
 		});
-		alert.setButton(AlertDialog.BUTTON_NEGATIVE, "Cancel",
+		alert.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.cancel),
 				new DialogInterface.OnClickListener() {
 
 			public void onClick(DialogInterface dialog, int which) {
@@ -245,7 +246,7 @@ public class MuPDFActivity extends Activity
 	public void createUI(Bundle savedInstanceState) {
 		if (core == null)
 			return;
-		// Now create the UI.
+    	// Now create the UI.
 		// First create the document view making use of the ReaderView's internal
 		// gesture recognition
 		mDocView = new ReaderView(this) {
@@ -859,7 +860,8 @@ public class MuPDFActivity extends Activity
 				} else {
 					mAlertBuilder.setTitle(SearchTaskResult.get() == null ? R.string.text_not_found : R.string.no_further_occurences_found);
 					AlertDialog alert = mAlertBuilder.create();
-					alert.setButton(AlertDialog.BUTTON_POSITIVE, "Dismiss",
+					alert.setCancelable(false);
+					alert.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.close),
 							(DialogInterface.OnClickListener)null);
 					alert.show();
 				}
@@ -917,21 +919,23 @@ public class MuPDFActivity extends Activity
 		return super.onPrepareOptionsMenu(menu);
 	}
 
-	//xujie debug
 	@Override
 	public void onBackPressed() {
-		MuPDFPageView pageView = (MuPDFPageView) mDocView.getDisplayedView();
-		if (pageView != null) {
-			if (pageView.isBusyIndicator()) {
-				return;
+		if (mDocView != null) {
+			MuPDFPageView pageView = (MuPDFPageView) mDocView.getDisplayedView();
+			if (pageView != null) {
+				if (pageView.isBusyIndicator()) {
+					return;
+				}
 			}
 		}
 		
+//xujie debug
 //		if (mIsFromMobilePrintPreview) {
 //			setResult(RESULT_BACK);		
 //		}
+//xujie debug
 			
 		super.onBackPressed();
 	}
-	//xujie debug
 }

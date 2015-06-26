@@ -53,8 +53,11 @@ public class LoadLibrary {
 		if(initFlag == false){
 			// 読み込みは１回のみとなるように注意！
 			String soName = "libmupdf.so";
-			if(Build.CPU_ABI.equals("armeabi-v7a")){
+			if (Build.CPU_ABI.equals("armeabi-v7a")) {
 				soName = "libmupdf_neon.so";
+			}
+			else if (Build.CPU_ABI.equals("arm64-v8a")) {
+				soName = "libmupdf_arm64.so";
 			}
 			Calendar calendar = Calendar.getInstance();
 			int now   = calendar.get(Calendar.MILLISECOND);		// 同じファイル名だとSystem.loadした時にalready loadedが発生するので、頭に時間をつけてアクセス毎に別ファイルに

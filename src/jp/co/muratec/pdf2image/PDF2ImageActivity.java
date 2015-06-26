@@ -782,7 +782,16 @@ public class PDF2ImageActivity extends Activity {
 		MuPDFCore pdfCore = null;
 		try {
 			pdfCore = new MuPDFCore(path);
-			pages = pdfCore.countPages();
+//#if (0)	// 暗号化PDFに対応する場合
+//			pages = pdfCore.countPages();
+//#else	// 暗号化PDFに対応しない場合
+			if (pdfCore.needsPassword()) {
+				pages = 0;
+			}
+			else {
+				pages = pdfCore.countPages();
+			}
+//#endif
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

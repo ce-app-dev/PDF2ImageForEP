@@ -30,13 +30,13 @@ public class ChoosePDFActivity extends ListActivity {
 		String storageState = Environment.getExternalStorageState();
 
 		if (!Environment.MEDIA_MOUNTED.equals(storageState)
-				&& !Environment.MEDIA_MOUNTED_READ_ONLY.equals(storageState))
-		{
+				&& !Environment.MEDIA_MOUNTED_READ_ONLY.equals(storageState)) {
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setCancelable(false);
 			builder.setTitle(R.string.no_media_warning);
 			builder.setMessage(R.string.no_media_hint);
 			AlertDialog alert = builder.create();
-			alert.setButton(AlertDialog.BUTTON_POSITIVE,"Dismiss",
+			alert.setButton(AlertDialog.BUTTON_POSITIVE,getString(R.string.close),
 					new OnClickListener() {
 						public void onClick(DialogInterface dialog, int which) {
 							finish();

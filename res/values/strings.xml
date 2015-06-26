@@ -11,6 +11,8 @@
     <string name="no_media_warning">Storage Media not present</string>
     <string name="no_media_hint">Sharing the storage media with a PC can make it inaccessible</string>
     <string name="open_failed">Unable to open document</string>
+    <string name="close">Close</string>
+    <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="search_backwards">Search backwards</string>
     <string name="search_forwards">Search forwards</string>
